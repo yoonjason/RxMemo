@@ -10,7 +10,6 @@
 		3E628309ED2D02737AC0C805 /* Pods_RxMemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6708416F7554B0A75279E602 /* Pods_RxMemo.framework */; };
 		67ACED0C24E5197E0022AB8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67ACED0B24E5197E0022AB8C /* AppDelegate.swift */; };
 		67ACED0E24E5197E0022AB8C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67ACED0D24E5197E0022AB8C /* SceneDelegate.swift */; };
-		67ACED1024E5197E0022AB8C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67ACED0F24E5197E0022AB8C /* ViewController.swift */; };
 		67ACED1324E5197E0022AB8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67ACED1124E5197E0022AB8C /* Main.storyboard */; };
 		67ACED1624E5197E0022AB8C /* RxMemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 67ACED1424E5197E0022AB8C /* RxMemo.xcdatamodeld */; };
 		67ACED1824E519800022AB8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67ACED1724E519800022AB8C /* Assets.xcassets */; };
@@ -22,7 +21,6 @@
 		67ACED0824E5197E0022AB8C /* RxMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67ACED0B24E5197E0022AB8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67ACED0D24E5197E0022AB8C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		67ACED0F24E5197E0022AB8C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		67ACED1224E5197E0022AB8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		67ACED1524E5197E0022AB8C /* RxMemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RxMemo.xcdatamodel; sourceTree = "<group>"; };
 		67ACED1724E519800022AB8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -74,16 +72,55 @@
 		67ACED0A24E5197E0022AB8C /* RxMemo */ = {
 			isa = PBXGroup;
 			children = (
+				67F767BB24E523DF0029327E /* Scene */,
+				67F767BA24E523D00029327E /* Service */,
+				67F767B924E523B80029327E /* ViewModel */,
+				67F767B824E523A10029327E /* ViewController */,
+				67F767B724E5238F0029327E /* Model */,
 				67ACED0B24E5197E0022AB8C /* AppDelegate.swift */,
 				67ACED0D24E5197E0022AB8C /* SceneDelegate.swift */,
-				67ACED0F24E5197E0022AB8C /* ViewController.swift */,
-				67ACED1124E5197E0022AB8C /* Main.storyboard */,
 				67ACED1724E519800022AB8C /* Assets.xcassets */,
-				67ACED1924E519800022AB8C /* LaunchScreen.storyboard */,
 				67ACED1C24E519800022AB8C /* Info.plist */,
 				67ACED1424E5197E0022AB8C /* RxMemo.xcdatamodeld */,
 			);
 			path = RxMemo;
+			sourceTree = "<group>";
+		};
+		67F767B724E5238F0029327E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		67F767B824E523A10029327E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				67ACED1124E5197E0022AB8C /* Main.storyboard */,
+				67ACED1924E519800022AB8C /* LaunchScreen.storyboard */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		67F767B924E523B80029327E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		67F767BA24E523D00029327E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		67F767BB24E523DF0029327E /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scene;
 			sourceTree = "<group>";
 		};
 		82655661AD3F34B4E79CCA5A /* Frameworks */ = {
@@ -209,7 +246,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67ACED1024E5197E0022AB8C /* ViewController.swift in Sources */,
 				67ACED0C24E5197E0022AB8C /* AppDelegate.swift in Sources */,
 				67ACED0E24E5197E0022AB8C /* SceneDelegate.swift in Sources */,
 				67ACED1624E5197E0022AB8C /* RxMemo.xcdatamodeld in Sources */,
