@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -50,7 +50,6 @@
 				DC7B67337BEEE46FE8BAB49D /* Pods-RxMemo.debug.xcconfig */,
 				80B4A4391EF4718438C00DB4 /* Pods-RxMemo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
