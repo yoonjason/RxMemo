@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B1404EE24F3A5E800886822 /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1404ED24F3A5E800886822 /* Memo.swift */; };
+		1B1404F924F3AAC000886822 /* MemoStorageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1404F824F3AAC000886822 /* MemoStorageType.swift */; };
+		1B1404FB24F3AAD100886822 /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1404FA24F3AAD100886822 /* Memo.swift */; };
+		1B1404FF24F3AB2D00886822 /* MemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1404FE24F3AB2D00886822 /* MemoryStorage.swift */; };
 		3E628309ED2D02737AC0C805 /* Pods_RxMemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6708416F7554B0A75279E602 /* Pods_RxMemo.framework */; };
 		67ACED0C24E5197E0022AB8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67ACED0B24E5197E0022AB8C /* AppDelegate.swift */; };
 		67ACED0E24E5197E0022AB8C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67ACED0D24E5197E0022AB8C /* SceneDelegate.swift */; };
@@ -18,7 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1B1404ED24F3A5E800886822 /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Memo.swift; path = RxMemo/Memo.swift; sourceTree = SOURCE_ROOT; };
+		1B1404F824F3AAC000886822 /* MemoStorageType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoStorageType.swift; sourceTree = "<group>"; };
+		1B1404FA24F3AAD100886822 /* Memo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
+		1B1404FE24F3AB2D00886822 /* MemoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryStorage.swift; sourceTree = "<group>"; };
 		6708416F7554B0A75279E602 /* Pods_RxMemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxMemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67ACED0824E5197E0022AB8C /* RxMemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxMemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67ACED0B24E5197E0022AB8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +48,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B1404F424F3AA7100886822 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		1B1404F524F3AA7800886822 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1B1404F624F3AA8800886822 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1B1404FD24F3AB0800886822 /* MemoStorage */,
+				1B1404FC24F3AAFD00886822 /* CoreDataStorage */,
+				1B1404F824F3AAC000886822 /* MemoStorageType.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		1B1404F724F3AA9300886822 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1B1404FA24F3AAD100886822 /* Memo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1B1404FC24F3AAFD00886822 /* CoreDataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				67ACED1424E5197E0022AB8C /* RxMemo.xcdatamodeld */,
+			);
+			path = CoreDataStorage;
+			sourceTree = "<group>";
+		};
+		1B1404FD24F3AB0800886822 /* MemoStorage */ = {
+			isa = PBXGroup;
+			children = (
+				1B1404FE24F3AB2D00886822 /* MemoryStorage.swift */,
+			);
+			path = MemoStorage;
+			sourceTree = "<group>";
+		};
 		1FF4010348CEAF18D371267F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -74,26 +126,17 @@
 		67ACED0A24E5197E0022AB8C /* RxMemo */ = {
 			isa = PBXGroup;
 			children = (
-				67F767BB24E523DF0029327E /* Scene */,
-				67F767BA24E523D00029327E /* Service */,
-				67F767B924E523B80029327E /* ViewModel */,
+				1B1404F724F3AA9300886822 /* Model */,
+				1B1404F624F3AA8800886822 /* Service */,
+				1B1404F524F3AA7800886822 /* ViewModel */,
+				1B1404F424F3AA7100886822 /* Scene */,
 				67F767B824E523A10029327E /* ViewController */,
-				67F767B724E5238F0029327E /* Model */,
 				67ACED0B24E5197E0022AB8C /* AppDelegate.swift */,
 				67ACED0D24E5197E0022AB8C /* SceneDelegate.swift */,
 				67ACED1724E519800022AB8C /* Assets.xcassets */,
 				67ACED1C24E519800022AB8C /* Info.plist */,
-				67ACED1424E5197E0022AB8C /* RxMemo.xcdatamodeld */,
 			);
 			path = RxMemo;
-			sourceTree = "<group>";
-		};
-		67F767B724E5238F0029327E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				1B1404ED24F3A5E800886822 /* Memo.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		67F767B824E523A10029327E /* ViewController */ = {
@@ -103,27 +146,6 @@
 				67ACED1924E519800022AB8C /* LaunchScreen.storyboard */,
 			);
 			path = ViewController;
-			sourceTree = "<group>";
-		};
-		67F767B924E523B80029327E /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		67F767BA24E523D00029327E /* Service */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
-		67F767BB24E523DF0029327E /* Scene */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Scene;
 			sourceTree = "<group>";
 		};
 		82655661AD3F34B4E79CCA5A /* Frameworks */ = {
@@ -249,10 +271,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B1404FF24F3AB2D00886822 /* MemoryStorage.swift in Sources */,
 				67ACED0C24E5197E0022AB8C /* AppDelegate.swift in Sources */,
+				1B1404F924F3AAC000886822 /* MemoStorageType.swift in Sources */,
 				67ACED0E24E5197E0022AB8C /* SceneDelegate.swift in Sources */,
 				67ACED1624E5197E0022AB8C /* RxMemo.xcdatamodeld in Sources */,
-				1B1404EE24F3A5E800886822 /* Memo.swift in Sources */,
+				1B1404FB24F3AAD100886822 /* Memo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
