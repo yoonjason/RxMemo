@@ -3,9 +3,9 @@ RxMemo 구현해보기
 #### RxSwift + MVVM을 적용하여 간단한? 메모장을 만들어 보고 있습니다.
    
 ## 사용된 버전
-### XCode 11.6, Swift 5,
+### XCode 11.6, Swift 5
    
-## 화면 스크린 샷
+<!-- ## 화면 스크린 샷 -->
    
 <!-- ### 1. 최근 검색어가 있는 화면
 <img src="images/001.PNG" width="375px" height="812px" title="첫번째 화면" alt="RubberDuck"></img> -->
