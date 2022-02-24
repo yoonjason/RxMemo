@@ -22,7 +22,7 @@ class MemoComposeViewModel: CommonViewModel {
      */
     private let content: String?
     
-    private var initialText: Driver<String?> {
+    var initialText: Driver<String?> {
         return Observable.just(content).asDriver(onErrorJustReturn: nil)
     }
     

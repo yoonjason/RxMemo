@@ -18,11 +18,11 @@ class MemoListViewController: UIViewController, ViewModelBindableType {
         let tableView = UITableView()
         tableView.backgroundColor = .red
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.register(MemoListCell.self, forCellReuseIdentifier: "MemoListCell")
+        tableView.register(MemoListCell.self, forCellReuseIdentifier: MemoListCell.reuseIdentifier)
         return tableView
     }()
 
-    private let addbutton: UIBarButtonItem = {
+    private var addbutton: UIBarButtonItem = {
         let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil)
         return button
     }()
@@ -39,12 +39,7 @@ class MemoListViewController: UIViewController, ViewModelBindableType {
         }
             .disposed(by: rx.disposeBag)
 
-        addbutton.rx.tap
-            .bind {
-            print("000")
-        }
-            .disposed(by: rx.disposeBag)
-
+        addbutton.rx.action = viewModel.makeCreateAction()
     }
 
     override func viewDidLoad() {

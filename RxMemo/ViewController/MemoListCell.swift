@@ -19,7 +19,10 @@ class MemoListCell: UITableViewCell {
         label.textAlignment = .left
         return label
     }()
-
+    
+    
+    
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
