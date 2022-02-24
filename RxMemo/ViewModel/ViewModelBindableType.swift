@@ -19,10 +19,6 @@ protocol ViewModelBindableType {
     func bindViewModel() //바인딩에 필요한 메서드
 }
 
-/**
- 
- 
- */
 
 extension ViewModelBindableType where Self: UIViewController {
     /**
