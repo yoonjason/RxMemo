@@ -28,6 +28,8 @@
 		1CA0394A27C61F0600647973 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA0394927C61F0600647973 /* Scene.swift */; };
 		1CEE913C27C70DC1008A85B3 /* SceneCoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEE913B27C70DC1008A85B3 /* SceneCoordinatorType.swift */; };
 		1CEE913E27C70F02008A85B3 /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEE913D27C70F02008A85B3 /* SceneCoordinator.swift */; };
+		1CEE914027C71FE3008A85B3 /* CommonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEE913F27C71FE3008A85B3 /* CommonViewModel.swift */; };
+		1CEE914227C72AAE008A85B3 /* MemoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEE914127C72AAE008A85B3 /* MemoListCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		1CA0394927C61F0600647973 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		1CEE913B27C70DC1008A85B3 /* SceneCoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinatorType.swift; sourceTree = "<group>"; };
 		1CEE913D27C70F02008A85B3 /* SceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinator.swift; sourceTree = "<group>"; };
+		1CEE913F27C71FE3008A85B3 /* CommonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViewModel.swift; sourceTree = "<group>"; };
+		1CEE914127C72AAE008A85B3 /* MemoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListCell.swift; sourceTree = "<group>"; };
 		32EE9FCE539CB4197EFFD1B7 /* Pods-RxMemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMemo.debug.xcconfig"; path = "Target Support Files/Pods-RxMemo/Pods-RxMemo.debug.xcconfig"; sourceTree = "<group>"; };
 		A6194B9E2F93297EA48AA824 /* Pods-RxMemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMemo.release.xcconfig"; path = "Target Support Files/Pods-RxMemo/Pods-RxMemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,6 +90,7 @@
 				065DF27027C616B600FBCBD3 /* MemoListViewController.swift */,
 				065DF27227C616EC00FBCBD3 /* MemoDetailViewController.swift */,
 				065DF27427C6171F00FBCBD3 /* MemoComposeViewController.swift */,
+				1CEE914127C72AAE008A85B3 /* MemoListCell.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -97,6 +102,7 @@
 				1CA0394027C619A000647973 /* MemoDetailViewModel.swift */,
 				1CA0394227C61A2F00647973 /* MemoComposeViewModel.swift */,
 				1CA0394427C61ABF00647973 /* ViewModelBindableType.swift */,
+				1CEE913F27C71FE3008A85B3 /* CommonViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -317,10 +323,12 @@
 				1CEE913C27C70DC1008A85B3 /* SceneCoordinatorType.swift in Sources */,
 				065DF27727C6178C00FBCBD3 /* MemoListViewModel.swift in Sources */,
 				1CA0394127C619A000647973 /* MemoDetailViewModel.swift in Sources */,
+				1CEE914027C71FE3008A85B3 /* CommonViewModel.swift in Sources */,
 				1CA0394827C61E9F00647973 /* TransitionModel.swift in Sources */,
 				065DF27127C616B600FBCBD3 /* MemoListViewController.swift in Sources */,
 				065DF27527C6171F00FBCBD3 /* MemoComposeViewController.swift in Sources */,
 				065DF26827C6099300FBCBD3 /* Memo.swift in Sources */,
+				1CEE914227C72AAE008A85B3 /* MemoListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

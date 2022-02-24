@@ -18,7 +18,7 @@ enum Scene {
 extension Scene {
     func instantiate(from storyboard: String = "Main") -> UIViewController {
         let storyboard = UIStoryboard(name: storyboard, bundle: nil)
-        
+
         /**
          첫번재 리스트 블록에서 메모 목록씬을 생선한 다음에 뷰 모델을 바인딩해서 리턴한다.
          메모목록씬은 네비게이션 컨트롤러에 임베드 되어있는 첫번째 신이기 때문에 씬자체를 만드는게 아니고 네비게이션 컨트롤러를 만들어야한다.
@@ -29,25 +29,32 @@ extension Scene {
                 fatalError()
             }
             guard var listVC = nav.viewControllers.first as? MemoListViewController else { fatalError() }
-            listVC.bind(viewModel: memoListViewModel)
-            
+
+            DispatchQueue.main.async {
+                listVC.bind(viewModel: memoListViewModel)
+            }
+
             return nav
-            
+
         case .detail(let memoDetailViewModel):
             guard var detailVC = storyboard.instantiateViewController(withIdentifier: "DetailVC") as? MemoDetailViewController else {
                 fatalError()
             }
-            detailVC.bind(viewModel: memoDetailViewModel)
+            DispatchQueue.main.async {
+                detailVC.bind(viewModel: memoDetailViewModel)
+            }
             return detailVC
-            
+
         case .compose(let memoComposeViewModel):
             guard let nav = storyboard.instantiateViewController(withIdentifier: "ComposeNav") as? UINavigationController else {
                 fatalError()
             }
-            guard var composeVC = nav.viewControllers.first as? MemoComposeViewController else  {
+            guard var composeVC = nav.viewControllers.first as? MemoComposeViewController else {
                 fatalError()
             }
-            composeVC.bind(viewModel: memoComposeViewModel)
+            DispatchQueue.main.async {
+                composeVC.bind(viewModel: memoComposeViewModel)
+            }
             return nav
         }
     }

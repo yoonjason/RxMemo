@@ -38,12 +38,13 @@ class SceneCoordinator: SceneCoordinatorType {
         /**
          씬을 생성해서 상수에 저장한다.
          - Scene 열거형에서 구현
+         - 실제로 Scene을 만든다.
          */
         let target = scene.instantiate()
         
         
         /**
-         실제 전환 처리
+         실제 화면 전환 처리
          */
         switch style {
         case .root:
