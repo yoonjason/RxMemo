@@ -8,7 +8,7 @@
 import UIKit
 
 class MemoDetailCell: UITableViewCell {
-    
+
     static let reuseIdentifier = "MemoDetailCell"
 
     private let label: UILabel = {
@@ -22,14 +22,14 @@ class MemoDetailCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        setupViews()
+        
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+        setupViews()
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
@@ -41,7 +41,12 @@ class MemoDetailCell: UITableViewCell {
             label.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 15),
             label.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
             label.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10)
-        ])
+            ])
+    }
+
+    func updateCell(_ title: String) {
+        print(title)
+        self.label.text = title
     }
 
 }

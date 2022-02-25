@@ -7,6 +7,11 @@
 
 import UIKit
 
+//import Action
+import RxCocoa
+import RxSwift
+import NSObject_Rx
+
 class MemoDetailViewController: UIViewController, ViewModelBindableType {
 
     var viewModel: MemoDetailViewModel!
@@ -35,13 +40,11 @@ class MemoDetailViewController: UIViewController, ViewModelBindableType {
 
     private var composeButton: UIBarButtonItem = {
         let button = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: nil)
-        button.tintColor = .red
         return button
     }()
 
     private var shareButton: UIBarButtonItem = {
-        let button = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: nil)
-        button.tintColor = .red
+        let button = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: nil)
         return button
     }()
 
@@ -51,11 +54,42 @@ class MemoDetailViewController: UIViewController, ViewModelBindableType {
         tableView.separatorStyle = .none
         tableView.allowsMultipleSelection = false
         tableView.register(MemoDetailCell.self, forCellReuseIdentifier: MemoDetailCell.reuseIdentifier)
+        tableView.register(MemoDetailDateCell.self, forCellReuseIdentifier: MemoDetailDateCell.reuseIdentifier)
         return tableView
     }()
 
 
     func bindViewModel() {
+        viewModel.title
+            .drive(navigationItem.rx.title)
+            .disposed(by: rx.disposeBag)
+        
+        viewModel.contents
+            .bind(to: tableView.rx.items) { tableView, row, value in
+                switch row {
+                case 0:
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "MemoDetailCell") as? MemoDetailCell
+                    cell?.updateCell(value)
+                    return cell!
+                case 1:
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "MemoDetailDateCell") as? MemoDetailDateCell
+                    cell?.updateCell(value)
+                    return cell!
+                default:
+                    fatalError()
+                }
+            }
+            .disposed(by: rx.disposeBag)
+            
+//        var backButton = UIBarButtonItem(title: nil, style: .done, target: nil, action: nil)
+//        viewModel.title
+//            .drive(backButton.rx.title)
+//            .disposed(by: rx.disposeBag)
+//
+//        backButton.rx.action = viewModel.popAction
+////        navigationItem.backBarButtonItem = backButton
+//        navigationItem.hidesBackButton = true
+//        navigationItem.leftBarButtonItem = backButton
         
     }
     

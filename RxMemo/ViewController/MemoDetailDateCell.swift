@@ -21,16 +21,13 @@ class MemoDetailDateCell: UITableViewCell {
         return label
     }()
 
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
     }
     
     func setupViews() {
@@ -41,5 +38,9 @@ class MemoDetailDateCell: UITableViewCell {
             label.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
             label.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10)
         ])
+    }
+    
+    func updateCell(_ title: String) {
+        self.label.text = title
     }
 }
