@@ -45,7 +45,6 @@ class MemoDetailCell: UITableViewCell {
     }
 
     func updateCell(_ title: String) {
-        print(title)
         self.label.text = title
     }
 

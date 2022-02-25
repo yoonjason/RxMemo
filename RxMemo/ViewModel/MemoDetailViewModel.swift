@@ -17,7 +17,7 @@ class MemoDetailViewModel: CommonViewModel {
     /**
      이전 Scene에서 전달된 메모가 저장된다.
      */
-    let memo: Memo
+    var memo: Memo
 
     private var formatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -42,7 +42,7 @@ class MemoDetailViewModel: CommonViewModel {
         self.memo = memo
         contents = BehaviorSubject<[String]>(value: [
             memo.content, formatter.string(from: memo.insertDate)
-            ])
+        ])
 
         super.init(title: title, sceneCoordinator: sceneCoordinator, storage: storage)
     }
@@ -62,6 +62,9 @@ class MemoDetailViewModel: CommonViewModel {
              메모를 편집하고 저장버튼을 누르면 액션이 실행되고, 새로운 내용을 subjet로 전달한다.
              */
             self.storage.update(memo: memo, content: input)
+                .do(onNext: {
+                self.memo = $0
+            })
                 .map { [$0.content, self.formatter.string(from: $0.insertDate)] }
                 .bind(onNext: { self.contents.onNext($0) })
                 .disposed(by: self.rx.disposeBag)
@@ -70,6 +73,9 @@ class MemoDetailViewModel: CommonViewModel {
         }
     }
 
+    /**
+     composeView로 가기위한 메서드
+     */
     func makeEditAction() -> CocoaAction {
         return CocoaAction { _ in
             let composeViewModel = MemoComposeViewModel(

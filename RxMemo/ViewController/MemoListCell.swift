@@ -17,6 +17,7 @@ class MemoListCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
+        label.numberOfLines = 0
         return label
     }()
     
