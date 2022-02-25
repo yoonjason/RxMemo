@@ -48,6 +48,32 @@ class MemoComposeViewController: UIViewController, ViewModelBindableType {
             .withLatestFrom(textView.rx.text.orEmpty)
             .bind(to: viewModel.saveAction.inputs)
             .disposed(by: rx.disposeBag)
+
+        let wilShowObservable = NotificationCenter.default.rx.notification(UIResponder.keyboardWillShowNotification)
+            .compactMap { $0.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue }
+            .map { $0.cgRectValue.height }
+
+        let willHideObservable = NotificationCenter.default.rx.notification(UIResponder.keyboardWillHideNotification)
+            .map { noti -> CGFloat in 0 }
+        /**
+         노티피케이션이 전달되는 시점마다 키보드 높이 방출
+         */
+        let keyboardObservable = Observable.merge(wilShowObservable, willHideObservable)
+            .share()
+        
+        
+        keyboardObservable
+            .withUnretained(textView)
+            .subscribe(onNext: { tv, height in
+                var inset = tv.contentInset
+                inset.bottom = height
+                tv.contentInset = inset
+                
+                var scrollInset = tv.verticalScrollIndicatorInsets
+                scrollInset.bottom = height
+                tv.verticalScrollIndicatorInsets = scrollInset
+            })
+            .disposed(by: rx.disposeBag)
     }
 
     override func viewDidLoad() {
