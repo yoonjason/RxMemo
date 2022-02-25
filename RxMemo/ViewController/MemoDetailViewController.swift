@@ -38,7 +38,7 @@ class MemoDetailViewController: UIViewController, ViewModelBindableType {
         return button
     }()
 
-    private var composeButton: UIBarButtonItem = {
+    private var editButton: UIBarButtonItem = {
         let button = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: nil)
         return button
     }()
@@ -80,6 +80,8 @@ class MemoDetailViewController: UIViewController, ViewModelBindableType {
                 }
             }
             .disposed(by: rx.disposeBag)
+        
+        editButton.rx.action = viewModel.makeEditAction()
             
 //        var backButton = UIBarButtonItem(title: nil, style: .done, target: nil, action: nil)
 //        viewModel.title
@@ -106,7 +108,7 @@ class MemoDetailViewController: UIViewController, ViewModelBindableType {
         toolbar.items = [
             trashButton,
             plexibleLeftButton,
-            composeButton,
+            editButton,
             plexibleRightButton,
             shareButton
         ]
