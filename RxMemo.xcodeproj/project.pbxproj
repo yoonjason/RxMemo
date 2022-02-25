@@ -32,6 +32,7 @@
 		1CEE913E27C70F02008A85B3 /* SceneCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEE913D27C70F02008A85B3 /* SceneCoordinator.swift */; };
 		1CEE914027C71FE3008A85B3 /* CommonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEE913F27C71FE3008A85B3 /* CommonViewModel.swift */; };
 		1CEE914227C72AAE008A85B3 /* MemoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEE914127C72AAE008A85B3 /* MemoListCell.swift */; };
+		1CEE914427C89D72008A85B3 /* CoreDataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEE914327C89D72008A85B3 /* CoreDataStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		1CEE913D27C70F02008A85B3 /* SceneCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCoordinator.swift; sourceTree = "<group>"; };
 		1CEE913F27C71FE3008A85B3 /* CommonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonViewModel.swift; sourceTree = "<group>"; };
 		1CEE914127C72AAE008A85B3 /* MemoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListCell.swift; sourceTree = "<group>"; };
+		1CEE914327C89D72008A85B3 /* CoreDataStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorage.swift; sourceTree = "<group>"; };
 		32EE9FCE539CB4197EFFD1B7 /* Pods-RxMemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMemo.debug.xcconfig"; path = "Target Support Files/Pods-RxMemo/Pods-RxMemo.debug.xcconfig"; sourceTree = "<group>"; };
 		A6194B9E2F93297EA48AA824 /* Pods-RxMemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMemo.release.xcconfig"; path = "Target Support Files/Pods-RxMemo/Pods-RxMemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				06F1B65727C6004E00AD290E /* RxMemo.xcdatamodeld */,
+				1CEE914327C89D72008A85B3 /* CoreDataStorage.swift */,
 			);
 			path = CoreDataStorage;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				065DF27127C616B600FBCBD3 /* MemoListViewController.swift in Sources */,
 				06704F3127C7769D0047FBA3 /* MemoDetailCell.swift in Sources */,
 				065DF27527C6171F00FBCBD3 /* MemoComposeViewController.swift in Sources */,
+				1CEE914427C89D72008A85B3 /* CoreDataStorage.swift in Sources */,
 				065DF26827C6099300FBCBD3 /* Memo.swift in Sources */,
 				1CEE914227C72AAE008A85B3 /* MemoListCell.swift in Sources */,
 				06704F3327C7797C0047FBA3 /* MemoDetailDateCell.swift in Sources */,
