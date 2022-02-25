@@ -11,6 +11,7 @@ enum TransitionStyle {
     case root //첫번째 화면
     case push //네비게이션 스택에 푸시
     case modal //모달화면
+    case share
 }
 
 enum TransitionError: Error {

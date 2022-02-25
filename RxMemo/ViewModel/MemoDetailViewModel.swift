@@ -82,7 +82,34 @@ class MemoDetailViewModel: CommonViewModel {
 
             let composeScene = Scene.compose(composeViewModel)
 
-            return self.sceneCoordinator.transition(to: composeScene, using: .modal, animated: true)
+            return self.sceneCoordinator.transition(
+                to: composeScene,
+                using: .modal,
+                animated: true)
+                .asObservable()
+                .map { _ in }
+        }
+    }
+
+    func shareAction() -> CocoaAction {
+        return CocoaAction { input in
+            print("#@#@# \(input)")
+            let detatilViewModel = MemoDetailViewModel(
+                memo: self.memo,
+                title: "메모 공유",
+                sceneCoordinator: self.sceneCoordinator,
+                storage: self.storage)
+            let detailScene = Scene.share(detatilViewModel)
+            return self.sceneCoordinator.transition(to: detailScene, using: .share, animated: true)
+                .asObservable()
+                .map { _ in }
+        }
+    }
+
+    func makeDeleteAction() -> CocoaAction {
+        return Action { input in
+            self.storage.delete(memo: self.memo)
+            return self.sceneCoordinator.close(animated: true)
                 .asObservable()
                 .map { _ in }
         }

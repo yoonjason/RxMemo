@@ -23,7 +23,7 @@ class MemoDetailViewController: UIViewController, ViewModelBindableType {
         return toolBar
     }()
 
-    private var trashButton: UIBarButtonItem = {
+    private var deleteButton: UIBarButtonItem = {
         let button = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: nil)
         button.tintColor = .red
         return button
@@ -63,26 +63,46 @@ class MemoDetailViewController: UIViewController, ViewModelBindableType {
         viewModel.title
             .drive(navigationItem.rx.title)
             .disposed(by: rx.disposeBag)
-        
+
         viewModel.contents
             .bind(to: tableView.rx.items) { tableView, row, value in
-                switch row {
-                case 0:
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "MemoDetailCell") as? MemoDetailCell
-                    cell?.updateCell(value)
-                    return cell!
-                case 1:
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "MemoDetailDateCell") as? MemoDetailDateCell
-                    cell?.updateCell(value)
-                    return cell!
-                default:
-                    fatalError()
-                }
+            switch row {
+            case 0:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "MemoDetailCell") as? MemoDetailCell
+                cell?.updateCell(value)
+                return cell!
+            case 1:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "MemoDetailDateCell") as? MemoDetailDateCell
+                cell?.updateCell(value)
+                return cell!
+            default:
+                fatalError()
             }
+        }
             .disposed(by: rx.disposeBag)
-        
+
         editButton.rx.action = viewModel.makeEditAction()
-            
+        
+        /**
+         Cocoa Action으로 구현
+         */
+        shareButton.rx.action = viewModel.shareAction()
+
+        /**
+         rx.tap 으로 구현
+         */
+//        shareButton.rx.tap
+//            .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
+//            .withUnretained(self)
+//            .subscribe(onNext: { vc, _ in
+//            let memo = vc.viewModel.memo.content
+//            let activityVC = UIActivityViewController(activityItems: [memo], applicationActivities: nil)
+//            vc.present(activityVC, animated: true, completion: nil)
+//        })
+//            .disposed(by: rx.disposeBag)
+        
+        deleteButton.rx.action  = viewModel.makeDeleteAction()
+
 //        var backButton = UIBarButtonItem(title: nil, style: .done, target: nil, action: nil)
 //        viewModel.title
 //            .drive(backButton.rx.title)
@@ -92,9 +112,9 @@ class MemoDetailViewController: UIViewController, ViewModelBindableType {
 ////        navigationItem.backBarButtonItem = backButton
 //        navigationItem.hidesBackButton = true
 //        navigationItem.leftBarButtonItem = backButton
-        
+
     }
-    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,7 +126,7 @@ class MemoDetailViewController: UIViewController, ViewModelBindableType {
         view.addSubview(tableView)
         view.addSubview(toolbar)
         toolbar.items = [
-            trashButton,
+            deleteButton,
             plexibleLeftButton,
             editButton,
             plexibleRightButton,
@@ -118,11 +138,11 @@ class MemoDetailViewController: UIViewController, ViewModelBindableType {
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -toolbar.frame.size.height),
-            
+
             toolbar.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             toolbar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             toolbar.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ])
+            ])
     }
 
 }

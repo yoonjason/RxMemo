@@ -11,6 +11,7 @@ enum Scene {
     case lsit(MemoListViewModel)
     case detail(MemoDetailViewModel)
     case compose(MemoComposeViewModel)
+    case share(MemoDetailViewModel)
 }
 /**
  스토리 보드에 있는 씬을 생성하고 연관값에 저장된 뷰모델을 바인딩해서 리턴하는 메서드를 구현한다.
@@ -56,6 +57,14 @@ extension Scene {
                 composeVC.bind(viewModel: memoComposeViewModel)
             }
             return nav
+        case .share(let memoDetailViewModel):
+            guard var detailVC = storyboard.instantiateViewController(withIdentifier: "DetailVC") as? MemoDetailViewController else {
+                fatalError()
+            }
+            DispatchQueue.main.async {
+                detailVC.bind(viewModel: memoDetailViewModel)
+            }
+            return detailVC
         }
     }
 }

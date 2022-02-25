@@ -66,6 +66,7 @@ class SceneCoordinator: SceneCoordinatorType {
             subject.onCompleted()
 
         case .push: //네비게이션 컨트롤러에 임베드되어있을 때 의미가 있음
+
             guard let nav = currentVC.navigationController else {
                 subject.onError(TransitionError.navigationControllerMissing)
                 break
@@ -86,7 +87,18 @@ class SceneCoordinator: SceneCoordinatorType {
                 subject.onCompleted()
             }
             currentVC = target.sceneViewController
+            
+        case .share:
+            guard let vc = currentVC as? MemoDetailViewController else {
+                subject.onError(TransitionError.unknown)
+                break
+            }
+            let activityVC = UIActivityViewController(activityItems: [vc.viewModel.memo.content], applicationActivities: nil)
+            vc.present(activityVC, animated: true) {
+                subject.onCompleted()
+            }
         }
+        
         return subject.asCompletable()
     }
 

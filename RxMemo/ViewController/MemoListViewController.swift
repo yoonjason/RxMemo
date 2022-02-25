@@ -34,9 +34,8 @@ class MemoListViewController: UIViewController, ViewModelBindableType {
         viewModel.title.drive(navigationItem.rx.title)
             .disposed(by: rx.disposeBag)
 
-        viewModel.memoList.bind(to: tableView.rx.items(cellIdentifier: MemoListCell.reuseIdentifier, cellType: MemoListCell.self)) { row, memo, cell in
-            cell.updateCell(memo.content)
-        }
+        viewModel.memoList
+            .bind(to: tableView.rx.items(dataSource: viewModel.dataSource))
             .disposed(by: rx.disposeBag)
 
         addbutton.rx.action = viewModel.makeCreateAction()
@@ -55,7 +54,7 @@ class MemoListViewController: UIViewController, ViewModelBindableType {
             .do(onNext: { (vc, data) in
             vc.tableView.deselectRow(at: data.0, animated: true)
         })
-                .map { $0.1.1 }
+            .map { $0.1.1 }
             .bind(to: viewModel.detailAction.inputs)
             .disposed(by: rx.disposeBag)
 
@@ -65,15 +64,15 @@ class MemoListViewController: UIViewController, ViewModelBindableType {
 //
 //        }
 //        .disposed(by: rx.disposeBag)
+
+        tableView.rx.modelDeleted(Memo.self)
+            .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
+            .bind(to: viewModel.deleteAction.inputs)
+            .disposed(by: rx.disposeBag)
         
-       
-        /**
-         백버튼을 대체하는 코드는 이전 뷰 컨트롤러에서 구현해야하고, left나 rightbaritem을 설정하는 코드는 해당뷰컨트롤러에서 구현해야한다.
-         
-         */
     }
-    
-    
+
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
