@@ -10,7 +10,7 @@ RxMemo 구현해보기
 * Action
 * NSObject+Rx
 * RxDatasources
-* RxCoreData
+* RxCoreData  
 
 ## 트러블 슈팅
 ### RxDataSources를 평소에 사용하지 않았었고, RxCocoa를 이용해서 화면 구현만 해보았는 데, 적용하는게 그리 어렵진 않았지만, 새롭게 다가와서 공부하는 시간과 서칭하는 시간이 좀 필요하였습니다.
